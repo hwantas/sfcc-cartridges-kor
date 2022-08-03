@@ -1,0 +1,2 @@
+<script language="javascript" src="https://stdpay.inicis.com/stdjs/INIStdPay_popup.js" charset="UTF-8"></script>
+<script src="${URLUtils.staticURL('/js/inicisPopup.js')}"></script>

@@ -1,0 +1,18 @@
+<div class="tab-pane inicis-content" id="inicis-content" role="tabpanel">
+
+    <fieldset class="payment-form-fields">
+
+        <!--- payment method is Inicis --->
+        <input type="hidden" class="form-control"
+               name="${pdict.forms.billingForm.paymentMethod.htmlName}"
+               value="INICIS"
+        >
+
+    </fieldset>
+
+    <iscomment> this block is dummy to avoid error when credit card is not enabled </iscomment>
+    <fieldset class="credit-card-form checkout-hidden" hidden>
+        <isinclude template="checkout/billing/creditCardForm" />
+    </fieldset>
+
+</div>

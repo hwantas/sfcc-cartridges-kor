@@ -1,0 +1,2 @@
+<script language="javascript" src="${pdict.url}" charset="UTF-8"></script>
+<input type="hidden" id="inicis-message" value="${pdict.message || ''}" />

@@ -1,0 +1,63 @@
+<form action="${URLUtils.url('IniApi-SubmitDeliveryTest')}" method="POST">
+    <ul>
+        <li>
+            ${Resource.msg('label.delivery.orderno', 'inicis', null)}
+            <input type="text" name="orderNo" />
+        </li>
+        <li>
+            ${Resource.msg('label.delivery.invoice', 'inicis', null)}
+            <input type="text" name="invoice" />
+        </li>
+        <li>
+            ${Resource.msg('label.delivery.registname', 'inicis', null)}
+            <input type="text" name="registName" />
+        </li>
+        <li>
+            ${Resource.msg('label.delivery.excode', 'inicis', null)}
+            <select name="exCode">
+                <option value="9999" selected>${Resource.msg('excode.9999', 'inicis', null)}</option>
+                <option value="korex">${Resource.msg('excode.korex', 'inicis', null)}</option>
+                <option value="kgbps">${Resource.msg('excode.kgbps', 'inicis', null)}</option>
+                <option value="registpost">${Resource.msg('excode.registpost', 'inicis', null)}</option>
+                <option value="hanjin">${Resource.msg('excode.hanjin', 'inicis', null)}</option>
+                <option value="chunil">${Resource.msg('excode.chunil', 'inicis', null)}</option>
+                <option value="ilyang">${Resource.msg('excode.ilyang', 'inicis', null)}</option>
+                <option value="cvsnet">${Resource.msg('excode.cvsnet', 'inicis', null)}</option>
+                <option value="kgb">${Resource.msg('excode.kgb', 'inicis', null)}</option>
+                <option value="hyundai">${Resource.msg('excode.hyundai', 'inicis', null)}</option>
+                <option value="EPOST">${Resource.msg('excode.EPOST', 'inicis', null)}</option>
+                <option value="cjgls">${Resource.msg('excode.cjgls', 'inicis', null)}</option>
+                <option value="kdexp">${Resource.msg('excode.kdexp', 'inicis', null)}</option>
+                <option value="daesin">${Resource.msg('excode.daesin', 'inicis', null)}</option>
+                <option value="honam">${Resource.msg('excode.honam', 'inicis', null)}</option>
+                <option value="hdexp">${Resource.msg('excode.hdexp', 'inicis', null)}</option>
+            </select>
+        </li>
+        <li>
+            ${Resource.msg('label.delivery.charge', 'inicis', null)}
+            <select name="charge">
+                <option value="SH" selected>${Resource.msg('charge.sh', 'inicis', null)}</option>
+                <option value="BH">${Resource.msg('charge.bh', 'inicis', null)}</option>
+            </select>
+        </li>
+        <li>
+            ${Resource.msg('label.delivery.sendname', 'inicis', null)}
+            <input type="text" name="sendName" />
+        </li>
+        <li>
+            ${Resource.msg('label.delivery.sendtel', 'inicis', null)}
+            <input type="text" name="sendTel" />
+        </li>
+        <li>
+            ${Resource.msg('label.delivery.sendpost', 'inicis', null)}
+            <input type="text" name="sendPost" />
+        </li>
+        <li>
+            ${Resource.msg('label.delivery.sendaddr1', 'inicis', null)}
+            <input type="text" name="sendAddr1" />
+        </li>
+    </ul>
+    <button type="submit">
+        ${Resource.msg('label.delivery.submit', 'inicis', null)}
+    </button>
+</form>

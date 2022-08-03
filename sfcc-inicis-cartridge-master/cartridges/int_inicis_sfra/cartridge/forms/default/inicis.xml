@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<form xmlns="http://www.demandware.com/xml/form/2008-04-19">
+
+    <field formid="inicis_isMobile" type="boolean" mandatory="true" />
+    <field formid="inicis_useEscrow" type="boolean" mandatory="true" />
+
+    <field formid="inicis_oid" type="string" mandatory="true" />
+    <field formid="inicis_authToken" type="string" mandatory="true" />
+    <field formid="inicis_authUrl" type="string" mandatory="true" />
+    <field formid="inicis_netCancelUrl" type="string" mandatory="true" />
+
+    <field formid="inicis_P_TID" type="string" mandatory="true" />
+    <field formid="inicis_P_REQ_URL" type="string" mandatory="true" />
+    <field formid="inicis_P_AMT" type="number" mandatory="true" />
+
+</form>

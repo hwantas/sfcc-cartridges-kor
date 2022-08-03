@@ -1,0 +1,1086 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata xmlns="http://www.demandware.com/xml/impex/metadata/2006-10-31">
+    <type-extension type-id="SitePreferences">
+        <custom-attribute-definitions>
+            <attribute-definition attribute-id="inicis_testMode">
+                <display-name xml:lang="x-default">테스트 모드</display-name>
+                <display-name xml:lang="en-US">Test Mode</display-name>
+                <type>boolean</type>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>false</default-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="inicis_merchantID">
+                <display-name xml:lang="x-default">상점 아이디</display-name>
+                <display-name xml:lang="en-US">Store ID</display-name>
+                <type>string</type>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="inicis_signKey">
+                <display-name xml:lang="x-default">상점 아이디에 매칭되는 사인 키</display-name>
+                <display-name xml:lang="en-US">Sign Key for Store ID</display-name>
+                <type>string</type>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="inicis_escrow">
+                <display-name xml:lang="x-default">에스크로 사용</display-name>
+                <display-name xml:lang="en-US">Use Escrow</display-name>
+                <type>boolean</type>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>false</default-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="inicis_quotabase">
+                <display-name xml:lang="x-default">표시 할부 개월</display-name>
+                <display-name xml:lang="en-US">Installment month for display</display-name>
+                <type>set-of-int</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="inicis_nointerest">
+                <display-name xml:lang="x-default">상점부담 무이자할부 옵션 [카드코드-할부개월:할부개월]</display-name>
+                <display-name xml:lang="en-US">Store-burden-free installment option [card code-installment month:installment month]</display-name>
+                <type>set-of-string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="inicis_tax">
+                <display-name xml:lang="x-default">별도 부가세 적용</display-name>
+                <display-name xml:lang="en-US">Apply custom surtax</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>false</default-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="inicis_taxfree">
+                <display-name xml:lang="x-default">면세품 유무</display-name>
+                <display-name xml:lang="en-US">Duty-free goods</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>false</default-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="inicis_payViewType">
+                <display-name xml:lang="x-default">결제창 표시 방법(PC)</display-name>
+                <display-name xml:lang="en-US">Payment display type</display-name>
+                <type>enum-of-string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <value-definitions>
+                    <value-definition>
+                        <display xml:lang="x-default">팝업 창</display>
+                        <display xml:lang="en-US">Popup</display>
+                        <value>popup</value>
+                    </value-definition>
+                    <value-definition default="true">
+                        <display xml:lang="x-default">오버레이</display>
+                        <display xml:lang="en-US">Overlay</display>
+                        <value>overlay</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="inicis_acceptmethod_SKIN">
+                <display-name xml:lang="x-default">결제창 배경색상 [Default: #C1272C]</display-name>
+                <display-name xml:lang="en-US">Payment window background color [Default: #C1272C]</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="inicis_card_below1000">
+                <display-name xml:lang="x-default">신용카드 결제 시 1000원 이하금액 결제가능</display-name>
+                <display-name xml:lang="en-US">Credit card payment of 1,000 won or less</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>false</default-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="inicis_card_paypopup">
+                <display-name xml:lang="x-default">안심클릭계열 신용카드 POPUP 형태 표시</display-name>
+                <display-name xml:lang="en-US">Secure Click Credit Card POPUP Form Display</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>false</default-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="inicis_card_hidebar">
+                <display-name xml:lang="x-default">프로그래스바 미노출</display-name>
+                <display-name xml:lang="en-US">Progress Bar MinExposure</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>false</default-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="inicis_onlycardcode">
+                <display-name xml:lang="x-default">결제 카드사 선택 노출</display-name>
+                <display-name xml:lang="en-US">Progress Bar MinExposure</display-name>
+                <type>enum-of-string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <select-multiple-flag>true</select-multiple-flag>
+                <value-definitions>
+                    <value-definition>
+                        <display xml:lang="x-default">외환카드</display>
+                        <value>01</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">롯데카드</display>
+                        <value>03</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">현대카드</display>
+                        <value>04</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">국민카드</display>
+                        <value>06</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">비씨카드</display>
+                        <value>11</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">삼성카드</display>
+                        <value>12</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">신한카드(구,LG카드 포함)</display>
+                        <value>14</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">해외비자</display>
+                        <value>21</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">해외마스터</display>
+                        <value>22</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">해외JCB</display>
+                        <value>23</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">해외아멕스</display>
+                        <value>24</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">해외다이너스</display>
+                        <value>25</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">중국은련카드</display>
+                        <value>26</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">광주카드</display>
+                        <value>32</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">전북카드</display>
+                        <value>33</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">하나카드</display>
+                        <value>34</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">산업카드</display>
+                        <value>35</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">우리카드</display>
+                        <value>38</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">NH농협카드</display>
+                        <value>41</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">씨티카드</display>
+                        <value>43</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">신협체크카드</display>
+                        <value>48</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">수협카드</display>
+                        <value>51</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">제주카드</display>
+                        <value>52</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">MG새마을금고체크</display>
+                        <value>54</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">케이뱅크카드</display>
+                        <value>55</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">카카오뱅크카드</display>
+                        <value>56</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">우체국체크</display>
+                        <value>71</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">저축은행체크</display>
+                        <value>95</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="inicis_card_cardpoint">
+                <display-name xml:lang="x-default">카드포인트 사용유무 선택창 표시</display-name>
+                <display-name xml:lang="en-US">Select whether or not to use card points Display window</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>false</default-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="inicis_card_ocb">
+                <display-name xml:lang="x-default">카드 메인화면에 OCB 적립을 위한 카드번호 창 표시</display-name>
+                <display-name xml:lang="en-US">Display card number window for OCB accumulation on card main screen</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>false</default-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="inicis_card_slimquota">
+                <display-name xml:lang="x-default">부분무이자 설정</display-name>
+                <display-name xml:lang="en-US">partial zero interest setting</display-name>
+                <type>set-of-string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="inicis_card_mallpoint">
+                <display-name xml:lang="x-default">몰포인트</display-name>
+                <display-name xml:lang="en-US">Mall Point</display-name>
+                <type>enum-of-string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <select-multiple-flag>true</select-multiple-flag>
+                <value-definitions>
+                    <value-definition>
+                        <display xml:lang="x-default">외환카드</display>
+                        <value>01</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">롯데카드</display>
+                        <value>03</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">현대카드</display>
+                        <value>04</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">국민카드</display>
+                        <value>06</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">비씨카드</display>
+                        <value>11</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">삼성카드</display>
+                        <value>12</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">신한카드(구,LG카드 포함)</display>
+                        <value>14</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">해외비자</display>
+                        <value>21</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">해외마스터</display>
+                        <value>22</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">해외JCB</display>
+                        <value>23</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">해외아멕스</display>
+                        <value>24</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">해외다이너스</display>
+                        <value>25</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">중국은련카드</display>
+                        <value>26</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">광주카드</display>
+                        <value>32</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">전북카드</display>
+                        <value>33</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">하나카드</display>
+                        <value>34</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">산업카드</display>
+                        <value>35</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">우리카드</display>
+                        <value>38</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">NH농협카드</display>
+                        <value>41</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">씨티카드</display>
+                        <value>43</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">신협체크카드</display>
+                        <value>48</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">수협카드</display>
+                        <value>51</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">제주카드</display>
+                        <value>52</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">MG새마을금고체크</display>
+                        <value>54</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">케이뱅크카드</display>
+                        <value>55</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">카카오뱅크카드</display>
+                        <value>56</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">우체국체크</display>
+                        <value>71</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">저축은행체크</display>
+                        <value>95</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="inicis_MNAME">
+                <display-name xml:lang="x-default">가맹점 이름</display-name>
+                <display-name xml:lang="en-US">merchant name</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="inicis_P_CARD_OPTION">
+                <display-name xml:lang="x-default">신용카드 우선선택 옵션(모바일)</display-name>
+                <display-name xml:lang="en-US">Credit Card Priority Selection Option(Mobile)</display-name>
+                <type>enum-of-string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <select-multiple-flag>false</select-multiple-flag>
+                <value-definitions>
+                    <value-definition>
+                        <display xml:lang="x-default">외환카드</display>
+                        <value>01</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">롯데카드</display>
+                        <value>03</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">현대카드</display>
+                        <value>04</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">국민카드</display>
+                        <value>06</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">비씨카드</display>
+                        <value>11</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">삼성카드</display>
+                        <value>12</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">신한카드(구,LG카드 포함)</display>
+                        <value>14</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">해외비자</display>
+                        <value>21</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">해외마스터</display>
+                        <value>22</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">해외JCB</display>
+                        <value>23</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">해외아멕스</display>
+                        <value>24</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">해외다이너스</display>
+                        <value>25</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">중국은련카드</display>
+                        <value>26</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">광주카드</display>
+                        <value>32</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">전북카드</display>
+                        <value>33</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">하나카드</display>
+                        <value>34</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">산업카드</display>
+                        <value>35</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">우리카드</display>
+                        <value>38</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">NH농협카드</display>
+                        <value>41</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">씨티카드</display>
+                        <value>43</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">신협체크카드</display>
+                        <value>48</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">수협카드</display>
+                        <value>51</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">제주카드</display>
+                        <value>52</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">MG새마을금고체크</display>
+                        <value>54</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">케이뱅크카드</display>
+                        <value>55</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">카카오뱅크카드</display>
+                        <value>56</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">우체국체크</display>
+                        <value>71</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">저축은행체크</display>
+                        <value>95</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="inicis_globalVisa3d">
+                <display-name xml:lang="x-default">해외카드 노출 (모바일)</display-name>
+                <display-name xml:lang="en-US">Exposing overseas card (Mobile)</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>false</default-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="inicis_mobileHashKey">
+                <display-name xml:lang="x-default">모바일 금액위변조 Hashkey</display-name>
+                <display-name xml:lang="en-US">Mobile amount falsification hashkey</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="inicis_apiKey">
+                <display-name xml:lang="x-default">INIAPI key</display-name>
+                <display-name xml:lang="en-US">INIAPI key</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="inicis_clientIp">
+                <display-name xml:lang="x-default">가맹점 요청 서버IP (추후 거래 확인 등에 사용됨)</display-name>
+                <display-name xml:lang="en-US">merchant request serverIP (used for checking future transactions, etc.)</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+        </custom-attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="INICIS">
+                <display-name xml:lang="x-default">Inicis 설정</display-name>
+                <display-name xml:lang="en-US">Inicis Settings</display-name>
+                <attribute attribute-id="inicis_testMode"/>
+                <attribute attribute-id="inicis_merchantID"/>
+                <attribute attribute-id="inicis_signKey"/>
+                <attribute attribute-id="inicis_escrow"/>
+                <attribute attribute-id="inicis_quotabase"/>
+                <attribute attribute-id="inicis_nointerest"/>
+                <attribute attribute-id="inicis_tax"/>
+                <attribute attribute-id="inicis_taxfree"/>
+                <attribute attribute-id="inicis_payViewType"/>
+                <attribute attribute-id="inicis_acceptmethod_SKIN"/>
+                <attribute attribute-id="inicis_card_below1000"/>
+                <attribute attribute-id="inicis_card_paypopup"/>
+                <attribute attribute-id="inicis_card_hidebar"/>
+                <attribute attribute-id="inicis_onlycardcode"/>
+                <attribute attribute-id="inicis_card_cardpoint"/>
+                <attribute attribute-id="inicis_card_ocb"/>
+                <attribute attribute-id="inicis_card_slimquota"/>
+                <attribute attribute-id="inicis_card_mallpoint"/>
+                <attribute attribute-id="inicis_MNAME"/>
+                <attribute attribute-id="inicis_P_CARD_OPTION"/>
+                <attribute attribute-id="inicis_globalVisa3d"/>
+                <attribute attribute-id="inicis_mobileHashKey"/>
+                <attribute attribute-id="inicis_apiKey"/>
+                <attribute attribute-id="inicis_clientIp"/>
+            </attribute-group>
+        </group-definitions>
+    </type-extension>
+
+    <type-extension type-id="PaymentTransaction">
+        <custom-attribute-definitions>
+            <attribute-definition attribute-id="inicis_resultCode">
+                <display-name xml:lang="x-default">결과코드</display-name>
+                <display-name xml:lang="en-US">Result code</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>true</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="inicis_payMethod">
+                <display-name xml:lang="x-default">지불수단</display-name>
+                <display-name xml:lang="en-US">Payment method</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>true</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="inicis_applNum">
+                <display-name xml:lang="x-default">승인번호</display-name>
+                <display-name xml:lang="en-US">Approval number</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>true</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="inicis_applDate">
+                <display-name xml:lang="x-default">승인일자</display-name>
+                <display-name xml:lang="en-US">Approval Date</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>true</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="inicis_applTime">
+                <display-name xml:lang="x-default">승인시간</display-name>
+                <display-name xml:lang="en-US">Approval Time</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>true</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="inicis_EventCode">
+                <display-name xml:lang="x-default">이벤트 코드</display-name>
+                <display-name xml:lang="en-US">Event code</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>true</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="inicis_custEmail">
+                <display-name xml:lang="x-default">최종 이메일주소</display-name>
+                <display-name xml:lang="en-US">Final email address</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>true</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="inicis_CARD_Num">
+                <display-name xml:lang="x-default">신용카드번호</display-name>
+                <display-name xml:lang="en-US">Credit card number</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>true</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="inicis_CARD_Interest">
+                <display-name xml:lang="x-default">상점부담 무이자 할부여부 ["1":상점부담 무이자]</display-name>
+                <display-name xml:lang="en-US">Interest-free installment plan borne by the store</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>true</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="inicis_CARD_Quota">
+                <display-name xml:lang="x-default">카드 할부기간</display-name>
+                <display-name xml:lang="en-US">Credit card installment period</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>true</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="inicis_CARD_Code">
+                <display-name xml:lang="x-default">카드사 코드</display-name>
+                <display-name xml:lang="en-US">Card company code</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>true</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="inicis_CARD_CorpFlag">
+                <display-name xml:lang="x-default">카드구분 ["0":개인카드, "1":법인카드, "9":구분불가]</display-name>
+                <display-name xml:lang="en-US">Card classification ["0":Personal card, "1":corporate card, "9":Not distinguishable]</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>true</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="inicis_CARD_CheckFlag">
+                <display-name xml:lang="x-default">카드종류 ["0":신용카드, "1":체크카드, "2":기프트카드]</display-name>
+                <display-name xml:lang="en-US">Card type ["0":Credit card, "1":Check card, "2":Gift card]</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>true</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="inicis_CARD_PRTC_CODE">
+                <display-name xml:lang="x-default">부분취소 가능여부 ["1":가능 , "0":불가능]</display-name>
+                <display-name xml:lang="en-US">Partial cancellation possible status ["1": Possible, "0": Impossible]</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>true</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="inicis_CARD_BankCode">
+                <display-name xml:lang="x-default">카드발급사(은행) 코드</display-name>
+                <display-name xml:lang="en-US">Card issuer (bank) code</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>true</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="inicis_CARD_SrcCode">
+                <display-name xml:lang="x-default">간편(앱)결제구분</display-name>
+                <display-name xml:lang="en-US">Simple (app)</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>true</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="inicis_CARD_Point">
+                <display-name xml:lang="x-default">카드포인트 사용여부 ["":카드 포인트 사용안함, "1":카드 포인트 사용]</display-name>
+                <display-name xml:lang="en-US">Whether to use card points [":":Disable card points, "1":Use card points]</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>true</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="inicis_CARD_CouponPrice">
+                <display-name xml:lang="x-default">실제 카드승인 금액</display-name>
+                <display-name xml:lang="en-US">Actual Card Authorization Amount</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>true</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="inicis_CARD_CouponDiscount">
+                <display-name xml:lang="x-default">쿠폰(즉시할인) 금액</display-name>
+                <display-name xml:lang="en-US">Coupon (Immediate Discount) Amount</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>true</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="inicis_CARD_UsePoint">
+                <display-name xml:lang="x-default">포인트 사용금액</display-name>
+                <display-name xml:lang="en-US">Point usage amount</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>true</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="inicis_NAVERPOINT_UseFreePoint">
+                <display-name xml:lang="x-default">네이버포인트 무상포인트</display-name>
+                <display-name xml:lang="en-US">Naver Point Free Point</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>true</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="inicis_NAVERPOINT_CSHRApplYN">
+                <display-name xml:lang="x-default">네이버포인트 현금영수증 발행여부 ["Y":발행, "N":미발행]</display-name>
+                <display-name xml:lang="en-US">Whether to issue a cash receipt for Naver Point ["Y": Issued, "N": Not issued]</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>true</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="inicis_NAVERPOINT_CSHRApplAmt">
+                <display-name xml:lang="x-default">네이버포인트 현금영수증 발행 금액</display-name>
+                <display-name xml:lang="en-US">Amount of cash receipt issued by Naver Point</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>true</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="inicis_currency">
+                <display-name xml:lang="x-default">통화코드</display-name>
+                <display-name xml:lang="en-US">Currency code</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>true</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="inicis_OrgPrice">
+                <display-name xml:lang="x-default">달러 환전금액</display-name>
+                <display-name xml:lang="en-US">Dollar exchange amount</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>true</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="inicis_P_STATUS">
+                <display-name xml:lang="x-default">결과코드</display-name>
+                <display-name xml:lang="en-US">Result code(Mobile)</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>true</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="inicis_P_TYPE">
+                <display-name xml:lang="x-default">지불수단</display-name>
+                <display-name xml:lang="en-US">Payment method(Mobile)</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>true</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="inicis_P_AUTH_DT">
+                <display-name xml:lang="x-default">승인일자</display-name>
+                <display-name xml:lang="en-US">Approval date</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>true</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="inicis_P_CARD_ISSUER_CODE">
+                <display-name xml:lang="x-default">발급사(은행) 코드</display-name>
+                <display-name xml:lang="en-US">Issuer (bank) code</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>true</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="inicis_P_CARD_PRTC_CODE">
+                <display-name xml:lang="x-default">부분취소 가능여부 ["0":불가능, "1":가능]</display-name>
+                <display-name xml:lang="en-US">Partial cancellation status ["0": Not possible, "1": possible]</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>true</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="inicis_P_CARD_INTEREST">
+                <display-name xml:lang="x-default">상점부담 무이자 할부여부 ["1":상점부담 무이자]</display-name>
+                <display-name xml:lang="en-US">Interest-free installment plan borne by the store [1": Interest-free by the store]</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>true</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="inicis_CARD_CorpFlag">
+                <display-name xml:lang="x-default">카드구분 ["0":개인카드, "1":법인카드, "9":구분불가]</display-name>
+                <display-name xml:lang="en-US">Card classification ["0":Personal card, "1":corporate card, "9":Not distinguishable]</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>true</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="inicis_P_CARD_CHECKFLAG">
+                <display-name xml:lang="x-default">카드종류 ["0":신용, "1":체크, "2":기프트]</display-name>
+                <display-name xml:lang="en-US">Card type ["0":Credit, "1":Check, "2":Gift]</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>true</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="inicis_P_RMESG2">
+                <display-name xml:lang="x-default">신용카드 할부개월</display-name>
+                <display-name xml:lang="en-US">Credit card installment month</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>true</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="inicis_P_FN_CD1">
+                <display-name xml:lang="x-default">카드코드</display-name>
+                <display-name xml:lang="en-US">Card code</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>true</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="inicis_P_FN_NM">
+                <display-name xml:lang="x-default">결제카드사 한글명</display-name>
+                <display-name xml:lang="en-US">Payment card company Korean name</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>true</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="inicis_P_CARD_NUM">
+                <display-name xml:lang="x-default">카드번호</display-name>
+                <display-name xml:lang="en-US">Card number</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>true</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="inicis_P_AUTH_NO">
+                <display-name xml:lang="x-default">승인번호</display-name>
+                <display-name xml:lang="en-US">Approval number</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>true</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="inicis_P_ISP_CARDCODE">
+                <display-name xml:lang="x-default">VP 카드코드</display-name>
+                <display-name xml:lang="en-US">VP Card Code</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>true</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="inicis_P_COUPONFLAG">
+                <display-name xml:lang="x-default">쿠폰사용 유무 ["1":사용]</display-name>
+                <display-name xml:lang="en-US">Coupon availability [1": Enabled"]</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>true</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="inicis_P_COUPON_DISCOUNT">
+                <display-name xml:lang="x-default">쿠폰사용 금액</display-name>
+                <display-name xml:lang="en-US">Coupon Usage Amount</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>true</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="inicis_P_CARD_APPLPRICE">
+                <display-name xml:lang="x-default">실제 카드승인 금액</display-name>
+                <display-name xml:lang="en-US">Actual Card Authorization Amount</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>true</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="inicis_P_SRC_CODE">
+                <display-name xml:lang="x-default">간편(앱)결제여부</display-name>
+                <display-name xml:lang="en-US">Simple (app) payment status</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>true</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="inicis_P_CARD_USEPOINT">
+                <display-name xml:lang="x-default">포인트 사용금액</display-name>
+                <display-name xml:lang="en-US">Point usage amount</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>true</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="inicis_NAVERPOINT_UseFreePoint">
+                <display-name xml:lang="x-default">네이버포인트 무상포인트</display-name>
+                <display-name xml:lang="en-US">Naver Point Free Point</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>true</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="inicis_NAVERPOINT_CSHRApplYN">
+                <display-name xml:lang="x-default">네이버포인트 현금영수증 발행여부 ["Y":발행, "N":미발행]</display-name>
+                <display-name xml:lang="en-US">Whether to issue a cash receipt for Naver Point ["Y": Issued, "N": Not issued]</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>true</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="inicis_NAVERPOINT_CSHRApplAmt">
+                <display-name xml:lang="x-default">네이버포인트 현금영수증 발행 금액</display-name>
+                <display-name xml:lang="en-US">Amount of cash receipt issued by Naver Point</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>true</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="inicis_CARD_EmpPrtnCode">
+                <display-name xml:lang="x-default">롯데카드 임직원 제휴 구분코드 ["L":임직원]</display-name>
+                <display-name xml:lang="en-US">Lotte Card's Affiliate Classification Code ["L">Employees and employees]</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>true</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="inicis_CARD_NomlMobPrtnCode">
+                <display-name xml:lang="x-default">카드사 제휴구분코드 ["P":롯데카드일반, "M":롯데카드모바일, "H":현대카드(통합)]</display-name>
+                <display-name xml:lang="en-US">Card company's partnership classification code ["P": Lotte Card General, "M": Lotte Card Mobile, "H": Hyundai Card (integrated)]</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>true</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+        </custom-attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="INICIS">
+                <display-name xml:lang="x-default">Inicis 결제정보</display-name>
+                <display-name xml:lang="en-US">Inicis Payment Info</display-name>
+                <attribute attribute-id="inicis_resultCode"/>
+                <attribute attribute-id="inicis_payMethod"/>
+                <attribute attribute-id="inicis_applNum"/>
+                <attribute attribute-id="inicis_applDate"/>
+                <attribute attribute-id="inicis_applTime"/>
+                <attribute attribute-id="inicis_EventCode"/>
+                <attribute attribute-id="inicis_custEmail"/>
+                <attribute attribute-id="inicis_CARD_Num"/>
+                <attribute attribute-id="inicis_CARD_Interest"/>
+                <attribute attribute-id="inicis_CARD_Quota"/>
+                <attribute attribute-id="inicis_CARD_Code"/>
+                <attribute attribute-id="inicis_CARD_CorpFlag"/>
+                <attribute attribute-id="inicis_CARD_CheckFlag"/>
+                <attribute attribute-id="inicis_CARD_PRTC_CODE"/>
+                <attribute attribute-id="inicis_CARD_BankCode"/>
+                <attribute attribute-id="inicis_CARD_SrcCode"/>
+                <attribute attribute-id="inicis_CARD_Point"/>
+                <attribute attribute-id="inicis_CARD_CouponPrice"/>
+                <attribute attribute-id="inicis_CARD_CouponDiscount"/>
+                <attribute attribute-id="inicis_CARD_UsePoint"/>
+                <attribute attribute-id="inicis_NAVERPOINT_UseFreePoint"/>
+                <attribute attribute-id="inicis_NAVERPOINT_CSHRApplYN"/>
+                <attribute attribute-id="inicis_NAVERPOINT_CSHRApplAmt"/>
+                <attribute attribute-id="inicis_currency"/>
+                <attribute attribute-id="inicis_OrgPrice"/>
+                <attribute attribute-id="inicis_P_STATUS"/>
+                <attribute attribute-id="inicis_P_TYPE"/>
+                <attribute attribute-id="inicis_P_AUTH_DT"/>
+                <attribute attribute-id="inicis_P_CARD_ISSUER_CODE"/>
+                <attribute attribute-id="inicis_P_CARD_PRTC_CODE"/>
+                <attribute attribute-id="inicis_P_CARD_INTEREST"/>
+                <attribute attribute-id="inicis_CARD_CorpFlag"/>
+                <attribute attribute-id="inicis_P_CARD_CHECKFLAG"/>
+                <attribute attribute-id="inicis_P_RMESG2"/>
+                <attribute attribute-id="inicis_P_FN_CD1"/>
+                <attribute attribute-id="inicis_P_FN_NM"/>
+                <attribute attribute-id="inicis_P_CARD_NUM"/>
+                <attribute attribute-id="inicis_P_AUTH_NO"/>
+                <attribute attribute-id="inicis_P_ISP_CARDCODE"/>
+                <attribute attribute-id="inicis_P_COUPONFLAG"/>
+                <attribute attribute-id="inicis_P_COUPON_DISCOUNT"/>
+                <attribute attribute-id="inicis_P_CARD_APPLPRICE"/>
+                <attribute attribute-id="inicis_P_SRC_CODE"/>
+                <attribute attribute-id="inicis_P_CARD_USEPOINT"/>
+                <attribute attribute-id="inicis_NAVERPOINT_UseFreePoint"/>
+                <attribute attribute-id="inicis_NAVERPOINT_CSHRApplYN"/>
+                <attribute attribute-id="inicis_NAVERPOINT_CSHRApplAmt"/>
+                <attribute attribute-id="inicis_CARD_EmpPrtnCode"/>
+                <attribute attribute-id="inicis_CARD_NomlMobPrtnCode"/>
+            </attribute-group>
+        </group-definitions>
+    </type-extension>
+
+    <type-extension type-id="Order">
+        <custom-attribute-definitions>
+            <attribute-definition attribute-id="inicis_escrowTid">
+                <display-name xml:lang="x-default">에스크로 TID</display-name>
+                <display-name xml:lang="en-US">Escrow TID</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>true</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="inicis_escrowStatus">
+                <display-name xml:lang="x-default">에스크로 상태</display-name>
+                <display-name xml:lang="en-US">Escrow Status</display-name>
+                <type>enum-of-string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <select-multiple-flag>false</select-multiple-flag>
+                <value-definitions>
+                    <value-definition>
+                        <display xml:lang="x-default">사용안함</display>
+                        <value>0</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">배송대기</display>
+                        <value>1</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">배송등록</display>
+                        <value>2</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">구매확인</display>
+                        <value>3</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">강제구매확인</display>
+                        <value>31</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">구매거절</display>
+                        <value>4</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">거래취소</display>
+                        <value>8</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">거절확인</display>
+                        <value>10</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+        </custom-attribute-definitions>
+    </type-extension>
+</metadata>

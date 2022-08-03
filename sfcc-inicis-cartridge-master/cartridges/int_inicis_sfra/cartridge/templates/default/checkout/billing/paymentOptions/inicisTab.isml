@@ -1,0 +1,10 @@
+<li class="nav-item" data-method-id="${paymentOption.ID}">
+    <a class="nav-link inicis-tab" data-toggle="tab" href="#inicis-content" role="tab">
+        <img class="inicis-option"
+                src="${URLUtils.staticURL('/images/inicisLogo.gif')}"
+                height="32"
+                alt="${paymentOption.name}"
+                title="${paymentOption.name}"
+        >
+    </a>
+</li>

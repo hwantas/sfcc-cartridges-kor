@@ -1,0 +1,12 @@
+{
+    "hooks": [
+        {
+            "name"   : "app.payment.processor.inicis",
+            "script" : "./cartridge/scripts/hooks/payment/processor/inicis"
+        },
+        {
+            "name"   : "app.payment.form.processor.inicis",
+            "script" : "./cartridge/scripts/hooks/payment/processor/inicis_form_processor"
+        }
+    ]
+}

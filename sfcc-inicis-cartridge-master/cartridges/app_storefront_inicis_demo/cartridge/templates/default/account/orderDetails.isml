@@ -1,0 +1,44 @@
+<isdecorate template="common/layout/page">
+    <isscript>
+        var assets = require('*/cartridge/scripts/assets.js');
+        assets.addJs('/js/inicisEscrow.js'); // Inicis Integration
+        assets.addCss('/css/checkout/inicis.css'); // Inicis Integration
+        assets.addCss('/css/account/orderTrack.css');
+        assets.addCss('/css/account/profile.css');
+    </isscript>
+
+    <!--- Replace image once UX has given images --->
+    <div class="hero slant-down account-image">
+        <h1 class="page-title">${Resource.msg('heading.order.details','order',null)}</h1>
+    </div>
+    <div class="container receipt <isif condition="${pdict.order.shipping.length > 1}">multi-ship</isif>">
+        <!---Breadcrumbs--->
+        <isinclude template="components/breadcrumbs/pageBreadcrumbs"/>
+        <div class="row justify-content-center">
+            <div class="col-sm-8 col-md-6">
+                <isinclude template="checkout/confirmation/confirmationDetails" />
+                <iscomment>Inicis Integration</iscomment>
+                <isif condition="${pdict.order.orderStatus && [3, 4].indexOf(pdict.order.orderStatus.value) >= 0}">
+                    <isif condition="${pdict.order.inicis_escrowStatus && pdict.order.inicis_escrowStatus.value=='2'}">
+                        <button class="inicis escrow-confirm-btn"
+                            data-url="${URLUtils.url('Inicis-EscrowConfirm')}"
+                            data-order-no="${pdict.order.orderNumber}"
+                            data-order-token="${pdict.order.orderToken || ''}">
+                            ${Resource.msg('escrow.confirm.btn', 'inicis', null)}
+                        </button>
+                    </isif>
+                    <a href="${URLUtils.url('IniApi-Cancel', 'orderNo', pdict.order.orderNumber, 'orderToken', pdict.order.orderToken || '')}">
+                        <button class="inicis cancel-btn">
+                            ${Resource.msg('cancel.btn', 'inicis', null)}
+                        </button>
+                    </a>
+                </isif>
+                <div class="my-account">
+                    <a href="${pdict.exitLinkUrl}" title="${Resource.msg('link.orderdetails.myaccount','account',null)}" aria-label="${Resource.msg('link.orderdetails.myaccount','account',null)}">
+                        ${pdict.exitLinkText}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</isdecorate>
