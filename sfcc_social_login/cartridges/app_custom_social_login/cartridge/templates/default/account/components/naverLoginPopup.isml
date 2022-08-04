@@ -1,0 +1,9 @@
+<isdecorate template="/common/layout/blankPage">
+    <isscript>
+        var assets = require('*/cartridge/scripts/assets.js');
+        assets.addJs('/js/naverLoginPopup.js');
+    </isscript>
+
+    <a href="javascript:void(0);" id="naverIdLogin_loginButton" style="display:none;"></a>
+
+</isdecorate>

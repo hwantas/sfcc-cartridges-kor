@@ -1,0 +1,17 @@
+
+<div class="form-group">
+    <a href="javascript:void(0);" class="btn btn-block btn-outline-primary oauth-kakao" role="button" aria-pressed="true" id="loginOauthKakao">
+        Create with Kakao
+    </a>
+</div>
+<div class="form-group">
+    <a href="javascript:void(0);" class="btn btn-block btn-outline-primary oauth-naver" role="button" aria-pressed="true" id="loginOauthNaver">
+        Create with Naver
+    </a>
+</div>
+
+<isinclude template="account/components/registerFormForm" />
+
+<button type="button" class="btn btn-block btn-primary" id="btnSocialSubmit">
+    ${Resource.msg('button.createaccount.registration', 'registration', null)}
+</button>

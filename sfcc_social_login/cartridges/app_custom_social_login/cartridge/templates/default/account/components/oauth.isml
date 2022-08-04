@@ -1,0 +1,17 @@
+<isscript>
+    assets.addJs('/js/oauth.js');
+</isscript>
+<form action="" class="login-oauth" method="post" name="login-oauth-form">
+    <input type="hidden" id="registration-oauthProviderID" />
+    <input type="hidden" id="registration-oauthUserID" />
+    <div class="form-group">
+        <a href="${URLUtils.https('Login-OAuthLogin', 'oauthProvider', 'Kakao', 'oauthLoginTargetEndPoint', pdict.oAuthReentryEndpoint)}" class="btn btn-block btn-outline-primary oauth-kakao">
+            Login with Kakao
+        </a>
+    </div>
+    <div class="form-group">
+        <a href="${URLUtils.https('Login-OAuthLogin', 'oauthProvider', 'Naver', 'oauthLoginTargetEndPoint', pdict.oAuthReentryEndpoint)}" class="btn btn-block btn-outline-primary oauth-naver">
+            Login with Naver
+        </a>
+    </div>
+</form>
