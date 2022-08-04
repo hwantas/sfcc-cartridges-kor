@@ -1,0 +1,7 @@
+{
+  "hostname": "zyac-001.sandbox.us01.dx.commercecloud.salesforce.com",
+  "username": "hyko@i2max.co.kr",
+  "password": "q1w2e3r4!",
+  "cartridge": ["app_custom_auth_niceid"],
+  "code-version": "sfra_6_0_0_dmscc_0_1_0"
+}

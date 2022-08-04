@@ -1,0 +1,17 @@
+<isdecorate template="/common/layout/blankPage">
+    <isscript>
+        var assets = require('*/cartridge/scripts/assets.js');
+        assets.addJs('/js/niceidPopup.js');
+    </isscript>
+
+    <form name="niceidForm" id="niceidForm" method="POST" action="https://nice.checkplus.co.kr/CheckPlusSafeModel/checkplus.cb"> 
+        <input type="hidden" id="m" name="m" value='checkplusService' />
+        <input type="hidden" id="EncodeData" name="EncodeData" value='${pdict.EncodeData}' />
+    </form>
+    
+    <input type="hidden" id="niceidName" value="<isif condition = ${!!pdict.niceidObj}>${pdict.niceidObj.name}</isif>" /><br />
+    <input type="hidden" id="niceidCi" value="<isif condition = ${!!pdict.niceidObj}>${pdict.niceidObj.connInfo}</isif>" /><br />
+    <input type="hidden" id="niceidBirth" value="<isif condition = ${!!pdict.niceidObj}>${pdict.niceidObj.birthDate}</isif>" /><br />
+    <input type="hidden" id="niceidGender" value="<isif condition = ${!!pdict.niceidObj}>${pdict.niceidObj.gender}</isif>" /><br />
+    <input type="hidden" id="niceidMobileNo" value="<isif condition = ${!!pdict.niceidObj}>${pdict.niceidObj.mobileNo}</isif>" /><br />
+</isdecorate>
